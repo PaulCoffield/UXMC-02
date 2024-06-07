@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+{{ data['backlog'] | title}} backlog
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ data['backlog'] | title }} backlog items
+      </h1>
+
+     <ul class="govuk-task-list">
+      
+     {{ backlogItems(data.workItems) }}
+
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% macro backlogItems(backlog) %}
+
+  {% for item in backlog %}
+
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+    <div class="govuk-task-list__name-and-hint">
+      <a class="govuk-link govuk-task-list__link" href="/03/details?id={{item.id}}" aria-describedby="{{item.id}}-backlog-status">
+        {{item.title}}
+      </a>
+    </div>
+    <div class="govuk-task-list__status" id="company-details-4-status">
+      <strong class="govuk-tag govuk-tag--blue">
+        Incomplete - STATUS TBC
+      </strong>
+    </div>
+  </li>
+
+  {% endfor %}
+
+{% endmacro %}

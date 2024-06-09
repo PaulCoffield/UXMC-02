@@ -6,13 +6,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-
-
-
-
-
-
-
 // 03 Routing
 router.get('/03/design', (req, res) => {
 
@@ -344,23 +337,3 @@ req.session.data = {
 //   }
 // ]
 //   };
-
-//   res.redirect('/03/design/details?id=:itemId');
-
-// });
-
-
-
-
-// Logging session data  
-  
-router.use((req, res, next) => {    
-    const log = {  
-      method: req.method,  
-      url: req.originalUrl,  
-      data: req.session.data
-    }  
-    console.log(JSON.stringify(log, null, 2))  
-   
-  next()  
-}) 

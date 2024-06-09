@@ -1,14 +1,14 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-{{ data['backlog'] | title}} backlog
+  {{ data['backlog'] | title}} backlog
 {% endblock %}
 
 {% block beforeContent %}
   {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
+    text: "Back",
+    href: "/03/start"
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -21,14 +21,18 @@
       </h1>
 
      <ul class="govuk-task-list">
-      
-     {{ backlogItems(data.workItems) }}
-
+        {{ backlogItems(data.workItems) }}
+     </ul>
+     
     </div>
   </div>
 
 {% endblock %}
 
+
+{# =============================== #}
+{# ======= TASK LIST MACRO ======= #}
+{# =============================== #}
 
 {% macro backlogItems(backlog) %}
 
@@ -49,6 +53,11 @@
 
 {% endmacro %}
 
+
+{# ================================ #}
+{# ======= STATUS TAG MACRO ======= #}
+{# ================================ #}
+
 {% macro itemStatus(item) %}
 
   {% if item.status == 0 %}
@@ -65,9 +74,8 @@
     <strong class="govuk-tag govuk-tag--red">Blocked</strong>
 
     {% else %}
-    <strong class="govuk-tag govuk-tag--brown">Unkown</strong>
+    <strong class="govuk-tag govuk-tag--brown">Unknown</strong>
   
   {% endif%}
 
-  
 {% endmacro %}

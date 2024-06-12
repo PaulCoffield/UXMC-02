@@ -7,7 +7,7 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // 03 Routing
-router.get('/03/design', (req, res) => {
+router.get('/design', (req, res) => {
 
     req.session.data = {
         "backlog":"Design",
@@ -65,11 +65,11 @@ router.get('/03/design', (req, res) => {
   ]
     };
 
-    res.redirect('/03/task-list-macros?backlog=design');
+    res.redirect('/task-list-macros?backlog=design');
 
 });
 
-router.get('/03/development', (req, res) => {
+router.get('/development', (req, res) => {
 
     req.session.data = {
         "backlog":"development",
@@ -238,11 +238,11 @@ router.get('/03/development', (req, res) => {
            
     }
         
-    res.redirect('/03/task-list-macros?backlog=development');
+    res.redirect('/task-list-macros?backlog=development');
 
 });
 
-router.get('/03/product', (req, res) => {
+router.get('/product', (req, res) => {
 
 req.session.data = {
     "backlog":"product",
@@ -266,7 +266,7 @@ req.session.data = {
       
 }
 
-    res.redirect('/03/task-list-macros?backlog=product');
+    res.redirect('/task-list-macros?backlog=product');
 
 });
 

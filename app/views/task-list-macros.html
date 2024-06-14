@@ -7,7 +7,7 @@
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Back",
-    href: "/03/start"
+    href: "/"
   }) }}
 {% endblock %}
 
@@ -30,17 +30,13 @@
 {% endblock %}
 
 
-{# =============================== #}
-{# ======= TASK LIST MACRO ======= #}
-{# =============================== #}
-
 {% macro backlogItems(backlog) %}
 
   {% for item in backlog %}
 
   <li class="govuk-task-list__item govuk-task-list__item--with-link">
     <div class="govuk-task-list__name-and-hint">
-      <a class="govuk-link govuk-task-list__link" href="/03/{{data['backlog']}}/details?id={{item.id}}" aria-describedby="{{item.id}}-backlog-status">
+      <a class="govuk-link govuk-task-list__link" href="/{{data['backlog']}}/details?id={{item.id}}" aria-describedby="{{item.id}}-backlog-status">
         {{item.title}}
       </a>
     </div>
